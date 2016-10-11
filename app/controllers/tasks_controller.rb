@@ -53,4 +53,8 @@ class TasksController < ApplicationController
     params.require(:task).permit(:content, :status)
   end
 
+  def notify_to_slack
+    Slack.chat_postMessage(text: 'slack notify test', username: 'yinm_notify', channel: "#pepabo-collage")
+  end
+
 end
